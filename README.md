@@ -58,12 +58,14 @@ npm run build
 
 ### Start production server
 ```bash
-npm start
+node .next/standalone/server.js
 ```
+
+**Note**: This project uses Next.js standalone output for optimized Docker deployment. Use the command above instead of `npm start`.
 
 ### Run production build locally
 ```bash
-npm run build && npm start
+npm run build && node .next/standalone/server.js
 ```
 
 ## 🐳 Docker Deployment

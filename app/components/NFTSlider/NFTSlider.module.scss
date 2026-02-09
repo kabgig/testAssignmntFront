@@ -1,0 +1,216 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/typography';
+
+.slider {
+  padding: $spacing-4xl 0;
+  min-height: 500px;
+
+  @include mobile {
+    padding: $spacing-2xl 0;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.title {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-medium;
+  color: $text-light;
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+
+  @include mobile {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-2xl;
+  }
+
+  @include tablet {
+    font-size: $font-size-4xl;
+  }
+}
+
+.cardsWrapper {
+  margin-bottom: $spacing-3xl;
+  overflow: hidden;
+}
+
+.cards {
+  display: flex;
+  gap: $spacing-xl;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  @include mobile {
+    gap: $spacing-md;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 $spacing-md;
+    margin: 0 -$spacing-lg;
+    
+    & > * {
+      scroll-snap-align: center;
+    }
+
+    // Hide scrollbar
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    gap: $spacing-lg;
+  }
+}
+
+// Navigation
+.navigation {
+  @include flex-center;
+  gap: $spacing-md;
+  justify-content: center;
+}
+
+.navButton {
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-full;
+  background-color: $card-bg;
+  @include shadow-light;
+  @include flex-center;
+  @include transition;
+  border: none;
+  cursor: pointer;
+  color: $text-primary;
+
+  &:hover:not(:disabled) {
+    @include shadow-medium;
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// Loading skeletons
+.skeletonCard {
+  background-color: $card-bg;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  width: 280px;
+  flex-shrink: 0;
+
+  @include mobile {
+    width: 280px;
+    max-width: 90vw;
+  }
+
+  @include tablet {
+    width: 260px;
+  }
+}
+
+.skeletonImage {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(
+    90deg,
+    $bg-primary 0%,
+    lighten($bg-primary, 2%) 50%,
+    $bg-primary 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonContent {
+  padding: $spacing-md $spacing-lg $spacing-lg;
+}
+
+.skeletonTitle {
+  height: 24px;
+  background: linear-gradient(
+    90deg,
+    $bg-primary 0%,
+    lighten($bg-primary, 2%) 50%,
+    $bg-primary 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-md;
+}
+
+.skeletonBid {
+  height: 36px;
+  background: linear-gradient(
+    90deg,
+    $bg-primary 0%,
+    lighten($bg-primary, 2%) 50%,
+    $bg-primary 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-md;
+}
+
+.skeletonButton {
+  height: 48px;
+  background: linear-gradient(
+    90deg,
+    $bg-primary 0%,
+    lighten($bg-primary, 2%) 50%,
+    $bg-primary 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: $radius-xl;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Error state
+.error {
+  text-align: center;
+  padding: $spacing-4xl;
+  color: $text-secondary;
+
+  p {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.errorHint {
+  font-size: $font-size-sm;
+  color: $text-light;
+}
+
+.empty {
+  text-align: center;
+  padding: $spacing-4xl;
+  color: $text-secondary;
+}

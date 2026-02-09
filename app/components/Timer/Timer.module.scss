@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/typography';
+
+.timer {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  background-color: $timer-overlay;
+  color: $btn-text;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  backdrop-filter: blur(4px);
+  z-index: $z-timer;
+  white-space: nowrap;
+}
