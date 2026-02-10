@@ -59,6 +59,28 @@
 3. **Откройте браузер**
    Перейдите по адресу [http://localhost:3000](http://localhost:3000)
 
+4. **Остановка и удаление контейнера**
+   
+   Посмотреть запущенные контейнеры:
+   ```bash
+   docker ps
+   ```
+   
+   Остановить контейнер:
+   ```bash
+   docker stop <container_id или container_name>
+   ```
+   
+   Удалить контейнер:
+   ```bash
+   docker rm <container_id или container_name>
+   ```
+   
+   Удалить образ (опционально):
+   ```bash
+   docker rmi divesea-nft
+   ```
+
 ### Доступные команды
 
 - `npm run dev` - Запуск сервера разработки
